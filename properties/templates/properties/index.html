@@ -1,0 +1,70 @@
+{% extends 'properties/base.html' %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>
+            Find Your Dream Property Here
+        </h1>
+
+        <p>
+            Explore premium apartments, villas, and commercial properties.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="" class="primary-btn">Explore Properties</a>
+            <a href="" class="secondary-btn">Contact Agent</a>
+        </div>
+    </div>
+</section>
+
+<section class="property-section">
+
+    <h2>Latest Properties</h2>
+
+    <div class="property-grid">
+
+        {% for property in properties %}
+
+        <div class="property-card">
+
+            <img src="{{ property.image.url }}" alt="{{ property.title }}">
+
+            <div class="property-content">
+
+                <h3>{{ property.title }}</h3>
+
+                <p class="price">
+                    ₹ {{ property.price }}
+                </p>
+
+                <p>
+                    📍 {{ property.city }}, {{ property.state }}
+                </p>
+
+                <p>📐 {{ property.area }} sqft</p>
+
+                {% if property.bedrooms %}
+                <p>🛏 {{ property.bedrooms }} Bedrooms</p>
+                {% endif %}
+
+                {% if property.bathrooms %}
+                <p>🛁 {{ property.bathrooms }} Bathrooms</p>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <h3>No Properties Available</h3>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}
