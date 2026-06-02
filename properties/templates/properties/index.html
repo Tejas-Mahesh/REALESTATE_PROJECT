@@ -42,6 +42,7 @@
                 <p>
                     📍 {{ property.city }}, {{ property.state }}
                 </p>
+                <a href="{% url 'property_detail' property.id %}" class="details-btn">View Details</a>
 
                 <p>📐 {{ property.area }} sqft</p>
 

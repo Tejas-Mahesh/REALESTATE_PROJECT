@@ -1,11 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Property
 
+
 def home(request):
-    properties = Property.objects.filter(is_available=True).order_by('-created_at')
-
-    context = {
+    properties = Property.objects.all()
+    return render(request, 'properties/index.html', {
         'properties': properties
-    }
+    })
 
-    return render(request, 'properties/index.html', context)
+
+def property_detail(request, pk):
+    property = get_object_or_404(Property, pk=pk)
+
+    return render(request,
+                  'properties/property_detail.html',
+                  {'property': property})
