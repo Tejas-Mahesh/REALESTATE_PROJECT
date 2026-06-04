@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav class="navbar">
+
+    <div class="logo">
+        DreamHomes
+    </div>
+
+    <ul class="nav-links">
+
+    <li><a href="/">Home</a></li>
+    <li><a href="#">Properties</a></li>
+    <li><a href="#">Buy</a></li>
+    <li><a href="#">Rent</a></li>
+    <li><a href="#">Contact</a></li>
+
+    {% if user.is_authenticated %}
+
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+
+    {% else %}
+
+        <li><a href="{% url 'register' %}">Register</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+
+    {% endif %}
+
+</ul>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Find Your Dream Property</h1>
+
+        <p>
+            Luxury Villas, Apartments and Commercial Spaces
+        </p>
+
+        <a href="#" class="btn">
+            Explore Properties
+        </a>
+
+    </div>
+
+</section>
+<!-- Featured Properties -->
+
+<section class="featured">
+
+    <h2>Featured Properties</h2>
+
+    <div class="property-grid">
+
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
+            <h3>Luxury Villa</h3>
+            <p>Bangalore</p>
+            <span>₹2.5 Cr</span>
+        </div>
+
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be">
+            <h3>Modern Apartment</h3>
+            <p>Mysore</p>
+            <span>₹85 Lakh</span>
+        </div>
+
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750">
+            <h3>Premium House</h3>
+            <p>Hyderabad</p>
+            <span>₹1.2 Cr</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- About -->
+
+<section class="about">
+
+    <div class="about-content">
+
+        <h2>About Us</h2>
+
+        <p>
+            We help buyers and sellers connect with trusted
+            property opportunities across India.
+            From luxury villas to affordable homes,
+            we simplify the entire real estate experience.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Why Choose Us -->
+
+<section class="why-us">
+
+    <h2>Why Choose Us</h2>
+
+    <div class="features">
+
+        <div class="feature-box">
+            <h3>Verified Listings</h3>
+            <p>Only trusted properties.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Best Prices</h3>
+            <p>Competitive market rates.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Trusted Agents</h3>
+            <p>Professional support.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Testimonials -->
+
+<section class="testimonials">
+
+    <h2>What Clients Say</h2>
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial">
+            <p>
+                Excellent service and verified properties.
+            </p>
+            <h4>- Rahul Sharma</h4>
+        </div>
+
+        <div class="testimonial">
+            <p>
+                Found my dream home within a week.
+            </p>
+            <h4>- Priya Reddy</h4>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer>
+
+    <h3>DreamHomes</h3>
+
+    <p>
+        © 2026 All Rights Reserved
+    </p>
+
+</footer>
+{% endblock %}
